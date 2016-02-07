@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		574753D41C5C54C700EF600F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574753D31C5C54C700EF600F /* AppDelegate.swift */; };
+		574753D91C5C54C700EF600F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574753D71C5C54C700EF600F /* Main.storyboard */; };
+		574753DB1C5C54C700EF600F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 574753DA1C5C54C700EF600F /* Assets.xcassets */; };
+		574753DE1C5C54C700EF600F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574753DC1C5C54C700EF600F /* LaunchScreen.storyboard */; };
+		574753EC1C5C718E00EF600F /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574753EB1C5C718E00EF600F /* Workout.swift */; };
+		574753EE1C5C71BE00EF600F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574753ED1C5C71BE00EF600F /* Exercise.swift */; };
+		574753F01C5C741A00EF600F /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574753EF1C5C741A00EF600F /* ExercisesTableViewController.swift */; };
+		574753F41C5C7B6A00EF600F /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574753F31C5C7B6A00EF600F /* AddExerciseViewController.swift */; };
+		574753F81C5C82BB00EF600F /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574753F71C5C82BB00EF600F /* ExerciseTableViewCell.swift */; };
+		574754021C66AB4000EF600F /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574754011C66AB4000EF600F /* WorkoutTableViewCell.swift */; };
+		574754041C66AF6F00EF600F /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574754031C66AF6F00EF600F /* WorkoutTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		574753D01C5C54C700EF600F /* OwlLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwlLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		574753D31C5C54C700EF600F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		574753D81C5C54C700EF600F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		574753DA1C5C54C700EF600F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		574753DD1C5C54C700EF600F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		574753DF1C5C54C700EF600F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		574753EB1C5C718E00EF600F /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		574753ED1C5C71BE00EF600F /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		574753EF1C5C741A00EF600F /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
+		574753F31C5C7B6A00EF600F /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
+		574753F71C5C82BB00EF600F /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		574754011C66AB4000EF600F /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		574754031C66AF6F00EF600F /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		574753CD1C5C54C700EF600F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		574753C71C5C54C700EF600F = {
+			isa = PBXGroup;
+			children = (
+				574753D21C5C54C700EF600F /* OwlLift */,
+				574753D11C5C54C700EF600F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		574753D11C5C54C700EF600F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				574753D01C5C54C700EF600F /* OwlLift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		574753D21C5C54C700EF600F /* OwlLift */ = {
+			isa = PBXGroup;
+			children = (
+				574753D31C5C54C700EF600F /* AppDelegate.swift */,
+				574753F31C5C7B6A00EF600F /* AddExerciseViewController.swift */,
+				574753D71C5C54C700EF600F /* Main.storyboard */,
+				574754031C66AF6F00EF600F /* WorkoutTableViewController.swift */,
+				574753EF1C5C741A00EF600F /* ExercisesTableViewController.swift */,
+				574754011C66AB4000EF600F /* WorkoutTableViewCell.swift */,
+				574753F71C5C82BB00EF600F /* ExerciseTableViewCell.swift */,
+				574753EB1C5C718E00EF600F /* Workout.swift */,
+				574753ED1C5C71BE00EF600F /* Exercise.swift */,
+				574753DA1C5C54C700EF600F /* Assets.xcassets */,
+				574753DC1C5C54C700EF600F /* LaunchScreen.storyboard */,
+				574753DF1C5C54C700EF600F /* Info.plist */,
+			);
+			path = OwlLift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		574753CF1C5C54C700EF600F /* OwlLift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 574753E21C5C54C700EF600F /* Build configuration list for PBXNativeTarget "OwlLift" */;
+			buildPhases = (
+				574753CC1C5C54C700EF600F /* Sources */,
+				574753CD1C5C54C700EF600F /* Frameworks */,
+				574753CE1C5C54C700EF600F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OwlLift;
+			productName = OwlLift;
+			productReference = 574753D01C5C54C700EF600F /* OwlLift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		574753C81C5C54C700EF600F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Alex Dykstra";
+				TargetAttributes = {
+					574753CF1C5C54C700EF600F = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 778CUFQ677;
+					};
+				};
+			};
+			buildConfigurationList = 574753CB1C5C54C700EF600F /* Build configuration list for PBXProject "OwlLift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 574753C71C5C54C700EF600F;
+			productRefGroup = 574753D11C5C54C700EF600F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				574753CF1C5C54C700EF600F /* OwlLift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		574753CE1C5C54C700EF600F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				574753DE1C5C54C700EF600F /* LaunchScreen.storyboard in Resources */,
+				574753DB1C5C54C700EF600F /* Assets.xcassets in Resources */,
+				574753D91C5C54C700EF600F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		574753CC1C5C54C700EF600F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				574753F81C5C82BB00EF600F /* ExerciseTableViewCell.swift in Sources */,
+				574753D41C5C54C700EF600F /* AppDelegate.swift in Sources */,
+				574754041C66AF6F00EF600F /* WorkoutTableViewController.swift in Sources */,
+				574753F41C5C7B6A00EF600F /* AddExerciseViewController.swift in Sources */,
+				574753EC1C5C718E00EF600F /* Workout.swift in Sources */,
+				574754021C66AB4000EF600F /* WorkoutTableViewCell.swift in Sources */,
+				574753F01C5C741A00EF600F /* ExercisesTableViewController.swift in Sources */,
+				574753EE1C5C71BE00EF600F /* Exercise.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		574753D71C5C54C700EF600F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				574753D81C5C54C700EF600F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		574753DC1C5C54C700EF600F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				574753DD1C5C54C700EF600F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		574753E01C5C54C700EF600F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		574753E11C5C54C700EF600F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		574753E31C5C54C700EF600F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OwlLift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ad.OwlLift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		574753E41C5C54C700EF600F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OwlLift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ad.OwlLift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		574753CB1C5C54C700EF600F /* Build configuration list for PBXProject "OwlLift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				574753E01C5C54C700EF600F /* Debug */,
+				574753E11C5C54C700EF600F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		574753E21C5C54C700EF600F /* Build configuration list for PBXNativeTarget "OwlLift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				574753E31C5C54C700EF600F /* Debug */,
+				574753E41C5C54C700EF600F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 574753C81C5C54C700EF600F /* Project object */;
+}
