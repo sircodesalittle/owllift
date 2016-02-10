@@ -116,6 +116,7 @@ class AddExerciseViewController: UIViewController, UINavigationControllerDelegat
             exercise = Exercise(name: name, numSets: setNum!, numReps: repNum!, weight: weight!)
         }
     }
+    
     @IBAction func cancel(sender: UIBarButtonItem) {
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddExerciseMode = presentingViewController is UINavigationController

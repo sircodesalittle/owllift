@@ -74,6 +74,7 @@ class WorkoutTableViewController: UITableViewController {
         
         cell.nameLabel.text = workout.name
         cell.activated.on = workout.activated
+        cell.numExercises.text = String(workout.exercises.count)
         // Configure the cell...
 
         return cell
@@ -90,7 +91,6 @@ class WorkoutTableViewController: UITableViewController {
 
     func saveWorkouts() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(workouts, toFile: Workout.ArchiveURL.path!)
-        print(isSuccessfulSave)
         if !isSuccessfulSave {
             print("Failed to save workouts...")
         }
@@ -135,14 +135,30 @@ class WorkoutTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SelectExercises" {
+            let workoutDetailViewController = segue.destinationViewController as! SelectExercisesTableViewController
+
+            // Get the cell that generated this segue.
+            if let selectedWorkoutCell = sender as? WorkoutTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedWorkoutCell)!
+                let selectedWorkout = workouts[indexPath.row]
+                workoutDetailViewController.selectedExercises = selectedWorkout.exercises
+            }
+        }
     }
-    */
+    
+    @IBAction func unwindToWorkoutList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? SelectExercisesTableViewController {
+            if let selectedWorkout = tableView.indexPathForSelectedRow {
+                workouts[selectedWorkout.row].exercises = sourceViewController.selectedExercises!
+                tableView.reloadRowsAtIndexPaths([tableView.indexPathForSelectedRow!], withRowAnimation: .None)
+            }
+            saveWorkouts()
+            
+        }
+    }
 
 }
