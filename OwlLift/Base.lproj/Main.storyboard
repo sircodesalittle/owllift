@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Current Workout-->
+        <!--Graphs-->
         <scene sceneID="rVb-zM-D2x">
             <objects>
-                <viewController title="Current Workout" id="x34-Fc-9XF" sceneMemberID="viewController">
+                <viewController title="Graphs" id="x34-Fc-9XF" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GYm-wK-uKE"/>
                         <viewControllerLayoutGuide type="bottom" id="4rb-iH-SCa"/>
@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="dKZ-C5-LDP"/>
+                    <tabBarItem key="tabBarItem" title="Graphs" id="dKZ-C5-LDP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMs-fh-76X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="308" y="-1622"/>
         </scene>
-        <!--Item 1-->
+        <!--Active Workout-->
         <scene sceneID="qtI-in-RfF">
             <objects>
-                <viewController id="6HS-kc-0s1" sceneMemberID="viewController">
+                <viewController title="Active Workout" id="6HS-kc-0s1" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mq8-K4-poa"/>
                         <viewControllerLayoutGuide type="bottom" id="c4u-1I-bHf"/>
@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="nRe-Ft-cv4"/>
+                    <tabBarItem key="tabBarItem" title="Active Workout" id="nRe-Ft-cv4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQg-NZ-PKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,8 +191,8 @@
                                                 </switch>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ota-AS-uDg">
-                                            <rect key="frame" x="125" y="24" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ota-AS-uDg">
+                                            <rect key="frame" x="128" y="24" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -200,6 +200,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="zjD-nT-oYA" firstAttribute="leading" secondItem="bfC-ZR-UAB" secondAttribute="leadingMargin" id="73P-8X-lsW"/>
+                                        <constraint firstItem="ota-AS-uDg" firstAttribute="leading" secondItem="bfC-ZR-UAB" secondAttribute="leadingMargin" constant="120" id="MZl-4A-d4K"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ota-AS-uDg" secondAttribute="bottom" constant="16.5" id="Mgw-Wj-Om6"/>
+                                        <constraint firstItem="ota-AS-uDg" firstAttribute="top" secondItem="bfC-ZR-UAB" secondAttribute="topMargin" constant="16" id="iei-8S-dmo"/>
                                         <constraint firstItem="zjD-nT-oYA" firstAttribute="centerY" secondItem="bfC-ZR-UAB" secondAttribute="centerY" id="lg9-xA-9Hu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="zjD-nT-oYA" secondAttribute="trailing" id="mt5-SB-2RN"/>
                                     </constraints>
@@ -322,7 +325,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-bd-I1H">
-                                <rect key="frame" x="20" y="124" width="560" height="372.5"/>
+                                <rect key="frame" x="20" y="94" width="560" height="372.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yBI-mi-olU">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="74"/>
@@ -452,7 +455,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="PTo-bd-I1H" secondAttribute="trailing" id="bdK-bG-6pX"/>
                             <constraint firstItem="PTo-bd-I1H" firstAttribute="leading" secondItem="ghJ-Ut-eDT" secondAttribute="leadingMargin" id="nbi-su-2qD"/>
-                            <constraint firstItem="PTo-bd-I1H" firstAttribute="top" secondItem="369-Qh-WsJ" secondAttribute="bottom" constant="60" id="oau-Td-xZB"/>
+                            <constraint firstItem="PTo-bd-I1H" firstAttribute="top" secondItem="369-Qh-WsJ" secondAttribute="bottom" constant="30" id="oau-Td-xZB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Exercise" id="WN1-DL-0cq">

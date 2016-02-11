@@ -18,7 +18,6 @@ class SelectExercisesTableViewController: UITableViewController {
         if let savedExercises = loadExercises() {
             exercises += savedExercises
         } else {
-            // Load the sample data.
             loadExerciseSamples()
         }
     }
@@ -33,11 +32,9 @@ class SelectExercisesTableViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -65,19 +62,7 @@ class SelectExercisesTableViewController: UITableViewController {
         return cell
     }
     
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-//            // Delete the row from the data source
-//            exercises.removeAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    
     // MARK: - Navigation
-    // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if doneButton === sender {
             // Do nothing for now.... TODO
@@ -89,25 +74,38 @@ class SelectExercisesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var needToAdd = false
+        var needToAdd = true
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ExerciseTableViewCell
         for (index, selectedEx) in selectedExercises!.enumerate() {
             if exercises[indexPath.row].name == selectedEx.name {
-                print("already in array - only one instance of exercise allowed per workout")
+                // Workout already in array, remove the exercise from array.
                 selectedExercises!.removeAtIndex(index)
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 cell.reloadInputViews()
-                needToAdd = true
+                needToAdd = false
             }
         }
-        if !needToAdd {
+        if needToAdd {
             selectedExercises?.append(exercises[indexPath.row])
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
     }
     
+    /*
+        // Override to support editing the table view.
+        override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+            if editingStyle == .Delete {
+    //            // Delete the row from the data source
+    //            exercises.removeAtIndex(indexPath.row)
+    //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            } else if editingStyle == .Insert {
+                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            }
+        }
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
