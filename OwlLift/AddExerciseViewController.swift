@@ -32,6 +32,7 @@ class AddExerciseViewController: UIViewController, UINavigationControllerDelegat
         exerciseNameTextField.delegate = self
         
         setStepper.minimumValue = 1
+        setStepper.maximumValue = 5
         setStepper.value = 1
         setLabel.text = String(Int(setStepper.value))
         
