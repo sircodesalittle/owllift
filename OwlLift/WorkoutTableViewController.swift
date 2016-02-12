@@ -17,35 +17,12 @@ class WorkoutTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let savedWorkouts = loadWorkouts() {
-            workouts += savedWorkouts
-        } else {
-            loadDefaultWorkouts()
-        }
+        workouts = loadWorkouts()!
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    func loadDefaultWorkouts() {
-        let mondayExercises = [Exercise]()
-        let monday = Workout(name: "Monday", exercises: mondayExercises, complete: false, activated: true)!
-    
-        let tuesdayExercises = [Exercise]()
-        let tuesday = Workout(name: "Tuesday", exercises: tuesdayExercises, complete: false, activated: true)!
-        
-        let wednesdayExercises = [Exercise]()
-        let wednesday = Workout(name: "Wednesday", exercises: wednesdayExercises, complete: false, activated: true)!
-        
-        let thursdayExercises = [Exercise]()
-        let thursday = Workout(name: "Thursday", exercises: thursdayExercises, complete: false, activated: true)!
-        
-        let fridayExercises = [Exercise]()
-        let friday = Workout(name: "Friday", exercises: fridayExercises, complete: false, activated: false)!
-        
-        workouts += [monday, tuesday, wednesday, thursday, friday]
     }
 
     override func didReceiveMemoryWarning() {

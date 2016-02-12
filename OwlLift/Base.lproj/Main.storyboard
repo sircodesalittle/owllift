@@ -23,26 +23,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMs-fh-76X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308" y="-1622"/>
+            <point key="canvasLocation" x="308" y="-566"/>
         </scene>
-        <!--Active Workout-->
-        <scene sceneID="qtI-in-RfF">
+        <!--Active Exercises-->
+        <scene sceneID="v4u-EH-mXh">
             <objects>
-                <viewController title="Active Workout" id="6HS-kc-0s1" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mq8-K4-poa"/>
-                        <viewControllerLayoutGuide type="bottom" id="c4u-1I-bHf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="McE-Sd-0KD">
+                <tableViewController title="Active Exercises" id="3cD-JO-kZd" customClass="ActiveWorkoutTableViewController" customModule="OwlLift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" id="pn0-3R-WCp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Active Workout" id="nRe-Ft-cv4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iQg-NZ-PKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveWorkoutCell" rowHeight="100" id="ksC-xe-9Eu" customClass="ActiveWorkoutCell" customModule="OwlLift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ksC-xe-9Eu" id="Gky-8P-vcB">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd8-l4-FLO">
+                                            <rect key="frame" x="550" y="39" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="50W-sL-5nv">
+                                            <rect key="frame" x="8" y="29" width="42" height="41"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZa-Cc-NDB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MP-im-VTf">
+                                                    <rect key="frame" x="0.0" y="21" width="42" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="SZa-Cc-NDB" secondAttribute="bottom" constant="20" symbolic="YES" id="huf-pe-H9c"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="50W-sL-5nv" firstAttribute="leading" secondItem="Gky-8P-vcB" secondAttribute="leadingMargin" id="6oB-e6-wpm"/>
+                                        <constraint firstItem="50W-sL-5nv" firstAttribute="centerY" secondItem="Gky-8P-vcB" secondAttribute="centerY" id="AF0-kh-lr6"/>
+                                        <constraint firstItem="Rd8-l4-FLO" firstAttribute="top" secondItem="Gky-8P-vcB" secondAttribute="topMargin" constant="31" id="K0n-BU-QDi"/>
+                                        <constraint firstItem="50W-sL-5nv" firstAttribute="centerY" secondItem="Rd8-l4-FLO" secondAttribute="centerY" id="Zop-zS-RKc"/>
+                                        <constraint firstItem="Rd8-l4-FLO" firstAttribute="trailing" secondItem="Gky-8P-vcB" secondAttribute="trailingMargin" id="dTQ-UP-CiX"/>
+                                        <constraint firstItem="50W-sL-5nv" firstAttribute="top" secondItem="Gky-8P-vcB" secondAttribute="topMargin" constant="21" id="hx8-Ge-IF8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="numExerciseLabel" destination="Rd8-l4-FLO" id="yWx-eL-fwS"/>
+                                    <outlet property="workoutDate" destination="SZa-Cc-NDB" id="j9d-fR-eG1"/>
+                                    <outlet property="workoutDateLine2" destination="9MP-im-VTf" id="Xeb-xp-eKX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="3cD-JO-kZd" id="1nc-cz-g8t"/>
+                            <outlet property="delegate" destination="3cD-JO-kZd" id="hQA-IY-f7Q"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="This Week's Workouts" id="m4p-n7-5s2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kvl-C1-WRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="-2526"/>
+            <point key="canvasLocation" x="1274" y="-1571"/>
+        </scene>
+        <!--Active Workout Navigation-->
+        <scene sceneID="Tan-uu-iih">
+            <objects>
+                <navigationController title="Active Workout Navigation" id="Ep6-PL-J3r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Active Workout" id="Llg-cu-3pZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vgG-2h-0jX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3cD-JO-kZd" kind="relationship" relationship="rootViewController" id="3Sz-Nj-COR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mY-d0-aGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="-1571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8lD-PO-wvg">
@@ -55,14 +124,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="6HS-kc-0s1" kind="relationship" relationship="viewControllers" id="LA7-6Z-3ka"/>
+                        <segue destination="Ep6-PL-J3r" kind="relationship" relationship="viewControllers" id="Jrq-fJ-X5N"/>
                         <segue destination="x34-Fc-9XF" kind="relationship" relationship="viewControllers" id="iYC-XM-bse"/>
                         <segue destination="qSm-qd-5ya" kind="relationship" relationship="viewControllers" id="QhP-YS-ZiT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuc-PM-xHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-628" y="-950"/>
+            <point key="canvasLocation" x="-728" y="-1022"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Ifg-Vw-xec">
@@ -139,7 +208,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rx5-OP-jdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="-611"/>
+            <point key="canvasLocation" x="1236" y="637"/>
         </scene>
         <!--Settings Navigation-->
         <scene sceneID="iEb-iG-9WN">
@@ -156,7 +225,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qre-ix-9h6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="-611"/>
+            <point key="canvasLocation" x="468" y="637"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="MPN-PK-BkX">
@@ -223,7 +292,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65q-yU-i6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="-1387"/>
+            <point key="canvasLocation" x="2188" y="-155"/>
         </scene>
         <!--Exercise Table-->
         <scene sceneID="8VA-mR-LlI">
@@ -310,7 +379,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2H3-Se-8dB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="-611"/>
+            <point key="canvasLocation" x="2328" y="637"/>
         </scene>
         <!--Add Exercise-->
         <scene sceneID="nHZ-Gk-kcV">
@@ -486,7 +555,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH7-Ih-1hu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VE7-ee-ehy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3740" y="-611"/>
+            <point key="canvasLocation" x="3884" y="637"/>
         </scene>
         <!--Add Exercise Navigation-->
         <scene sceneID="6By-Ff-RmD">
@@ -504,7 +573,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSq-6H-SBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2984" y="-211"/>
+            <point key="canvasLocation" x="3128" y="1037"/>
         </scene>
         <!--Workout Exercise Table-->
         <scene sceneID="ZmK-2V-scK">
@@ -582,7 +651,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Exercises" id="ISO-q2-H2L">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="d5M-6a-Es1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="d5M-6a-Es1">
                             <connections>
                                 <segue destination="w4P-nQ-HrE" kind="unwind" unwindAction="unwindToWorkoutList:" id="hsX-SF-A48"/>
                             </connections>
@@ -596,10 +665,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eo9-ab-GMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="w4P-nQ-HrE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2936" y="-1387"/>
+            <point key="canvasLocation" x="3080" y="-139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0um-Ou-bx8"/>
+        <segue reference="OCK-t5-a57"/>
     </inferredMetricsTieBreakers>
 </document>
