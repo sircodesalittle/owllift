@@ -121,6 +121,18 @@ class ActiveWorkoutTableViewController: UITableViewController {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Workout.ArchiveURL.path!) as? [Workout]
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ToActiveExercises" {
+            let workoutDetailViewController = segue.destinationViewController as! ActiveExerciseTableViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedWorkoutCell = sender as? ActiveWorkoutCell {
+                let indexPath = tableView.indexPathForCell(selectedWorkoutCell)!
+                let selectedWorkout = workouts[indexPath.row]
+                workoutDetailViewController.exercises = selectedWorkout.exercises
+            }
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
