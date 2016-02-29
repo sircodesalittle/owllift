@@ -17,12 +17,6 @@ class setRepControl: UIView {
     let filledCircleImage = UIImage(named: "filledCircle")
     let emptyCircleImage = UIImage(named: "emptyCircle")
     
-    var repsCompleted = 0 {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -34,10 +28,7 @@ class setRepControl: UIView {
             for _ in 0..<sets! {
                 let button = UIButton()
                 button.setBackgroundImage(emptyCircleImage, forState: .Normal)
-                
-                button.setBackgroundImage(filledCircleImage, forState: .Selected)
-                button.setTitleColor(UIColor.whiteColor(), forState: .Selected)
-                button.setTitle("", forState: .Selected)
+                button.setTitle(String(reps! + 1), forState: .Normal)
                 
                 button.addTarget(self, action: "setRepButtonTapped:", forControlEvents: .TouchDown)
                 button.adjustsImageWhenHighlighted = false
@@ -54,8 +45,6 @@ class setRepControl: UIView {
             buttonFrame.origin.x = CGFloat(index * (buttonSize + 5))
             button.frame = buttonFrame
         }
-        
-        //updateButtonSelectionStates()
     }
     
     override func intrinsicContentSize() -> CGSize {
@@ -67,16 +56,31 @@ class setRepControl: UIView {
     
     func setRepButtonTapped(button: UIButton) {
         button.selected = true
-        if repsCompleted > 0 {
-            button.titleLabel?.text = String(repsCompleted)
+        let currentValue = Int(button.titleLabel!.text!)
+        if currentValue > 0 {
+            button.setBackgroundImage(filledCircleImage, forState: .Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            button.setTitle(String(currentValue! - 1), forState: .Normal)
+        }
+        else {
+            button.setBackgroundImage(emptyCircleImage, forState: .Normal)
+            button.setTitle(String(reps! + 1), forState: .Normal)
         }
     }
     
-//    func updateButtonSelectionStates() {
-//        for button in setRepButtons {
-//            // If the index of a button is less than the rating, that button shouldn't be selected.
-//            button.selected = index
-//        }
-//    }
+    func returnData() -> Array<Int> {
+        var repsCompleted: [Int] = []
+        for button in setRepButtons {
+            let completedValue = Int(button.titleLabel!.text!)
+            if completedValue > reps! {
+                repsCompleted.append(0)
+            }
+            else {
+                repsCompleted.append(completedValue!)
+            }
+        }
+        
+        return repsCompleted
+    }
 
 }

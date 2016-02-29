@@ -15,6 +15,7 @@ class Exercise: NSObject, NSCoding {
     var numSets: Int
     var numReps: Int
     var weight: Int
+    var completed: [Int]?
     
     struct PropertyKey {
         static let exerciseNameKey = "name"
