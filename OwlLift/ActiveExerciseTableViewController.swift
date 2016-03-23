@@ -12,6 +12,7 @@ class ActiveExerciseTableViewController: UITableViewController {
 
     var exercises = [Exercise]()
     var completedExercises = [HistoricalExercise]()
+    var workoutDate: NSDate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,7 @@ class ActiveExerciseTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //TODO: Fix "Save and Quit" prompt - need to exit to default exercises screen
     @IBAction func printCompleted(sender: AnyObject) {
         var toSave: HistoricalExercise
         var exit = false
@@ -72,13 +74,10 @@ class ActiveExerciseTableViewController: UITableViewController {
         for (var row = 0; row < tableView.numberOfRowsInSection(0); row++) {
             let indexPath = NSIndexPath(forRow: row, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! ActiveExerciseTableViewCell
-            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: NSDate())!
+            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!)!
             completedExercises.append(toSave)
-            print(toSave)
-        saveHistoricalExercises()
-        let test = loadHistoricalExercises()
-        print(test!.count)
         }
+        saveHistoricalExercises()
     }
     
     func saveHistoricalExercises() {

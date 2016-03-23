@@ -10,7 +10,7 @@ import UIKit
 
 class ActiveWorkoutCell: UITableViewCell {
 
-    
+    var workoutDateData: NSDate?
     @IBOutlet weak var workoutDate: UILabel!
     @IBOutlet weak var workoutDateLine2: UILabel!
     @IBOutlet weak var numExerciseLabel: UILabel!

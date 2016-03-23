@@ -72,6 +72,7 @@ class ActiveWorkoutTableViewController: UITableViewController {
             print("Date not found")
             
         }
+        cell.workoutDateData = cellDate
         cell.workoutDateLine2.text = cellDate.formattedFromCompenents(NSDateFormatterStyle.LongStyle, year: false, month: true, day: true, hour: false, minute: false, second: false)
         
         return cell
@@ -130,6 +131,7 @@ class ActiveWorkoutTableViewController: UITableViewController {
                 let indexPath = tableView.indexPathForCell(selectedWorkoutCell)!
                 let selectedWorkout = workouts[indexPath.row]
                 workoutDetailViewController.exercises = selectedWorkout.exercises
+                workoutDetailViewController.workoutDate = selectedWorkoutCell.workoutDateData
             }
         }
     }
