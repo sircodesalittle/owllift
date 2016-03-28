@@ -18,6 +18,8 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        self.tableView.backgroundColor = UIColor.darkGrayColor()
         
         // Don't show empty cells at the bottom of the tableView
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -36,6 +38,10 @@ class HistoryTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.darkGrayColor()
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -56,7 +62,7 @@ class HistoryTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellId = "HistoricExerciseCell"
+        let cellId = "HistoricWorkoutCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! HistoryTableViewCell
         
         let dictKey = Array(completedWorkouts.keys)[indexPath.row]
@@ -68,20 +74,20 @@ class HistoryTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedRowIndex = indexPath
-        let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == selectedRowIndex?.row {
-            return 150
-        }
-        return 61
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        selectedRowIndex = indexPath
+//        let selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! HistoryTableViewCell
+//        
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
+//    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath.row == selectedRowIndex?.row {
+//            return 150
+//        }
+//        return 61
+//    }
     
     override func viewWillAppear(animated: Bool) {
         if let loadedExercises = loadHistoricalExercises() {
@@ -119,6 +125,20 @@ class HistoryTableViewController: UITableViewController {
                 if !exerciseNames.contains(exercise.name) {
                     completedWorkouts[dateKey]!.append(exercise)
                 }
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ToHistoricExercises" {
+            let workoutDetailViewController = segue.destinationViewController as! HistoricExerciseTableViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedWorkoutCell = sender as? HistoryTableViewCell {
+                //let indexPath = tableView.indexPathForCell(selectedWorkoutCell)!
+                let selectedHistoricalWorkout = completedWorkouts[selectedWorkoutCell.dateLabel.text!]
+                //let selectedWorkout = completedWorkouts[indexPath.row]
+                workoutDetailViewController.historicalExercises = selectedHistoricalWorkout!
             }
         }
     }

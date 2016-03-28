@@ -21,6 +21,8 @@ class ActiveWorkoutTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundColor = UIColor.darkGrayColor()
+        
         if let savedWorkouts = loadWorkouts() {
             workouts += savedWorkouts
         } else {
@@ -45,6 +47,10 @@ class ActiveWorkoutTableViewController: UITableViewController {
         return 1
     }
 
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.darkGrayColor()
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activatedWorkouts.count
     }
@@ -74,6 +80,7 @@ class ActiveWorkoutTableViewController: UITableViewController {
         }
         cell.workoutDateData = cellDate
         cell.workoutDateLine2.text = cellDate.formattedFromCompenents(NSDateFormatterStyle.LongStyle, year: false, month: true, day: true, hour: false, minute: false, second: false)
+        cell.workoutDateLine2.textColor = UIColor.whiteColor()
         
         return cell
     }

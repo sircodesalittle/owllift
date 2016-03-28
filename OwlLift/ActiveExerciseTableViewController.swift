@@ -16,6 +16,11 @@ class ActiveExerciseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.backgroundColor = UIColor.darkGrayColor()
+        
+        // Don't show empty cells at the bottom of the tableView
+        tableView.tableFooterView = UIView(frame: CGRectZero)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,6 +36,10 @@ class ActiveExerciseTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.darkGrayColor()
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -70,11 +79,12 @@ class ActiveExerciseTableViewController: UITableViewController {
         presentViewController(alertView, animated: true, completion: nil)
         
         // If "Save and Quit" selected", save all the exercises and completed reps, then exit
-        
-        for (var row = 0; row < tableView.numberOfRowsInSection(0); row++) {
+        for row in 0...tableView.numberOfRowsInSection(0) - 1
+        {
             let indexPath = NSIndexPath(forRow: row, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! ActiveExerciseTableViewCell
-            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!)!
+            let targetReps = cell.setRepView.reps!
+            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!, numTargetReps: targetReps, notes:["none"])!
             completedExercises.append(toSave)
         }
         saveHistoricalExercises()

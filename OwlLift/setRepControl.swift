@@ -22,15 +22,16 @@ class setRepControl: UIView {
         
     }
     
-    
     override func layoutSubviews() {
+        self.backgroundColor = UIColor.darkGrayColor()
+        
         if setRepButtons.count < sets {
             for _ in 0..<sets! {
                 let button = UIButton()
                 button.setBackgroundImage(emptyCircleImage, forState: .Normal)
                 button.setTitle(String(reps! + 1), forState: .Normal)
                 
-                button.addTarget(self, action: "setRepButtonTapped:", forControlEvents: .TouchDown)
+                button.addTarget(self, action: #selector(setRepControl.setRepButtonTapped(_:)), forControlEvents: .TouchDown)
                 button.adjustsImageWhenHighlighted = false
                 setRepButtons += [button]
                 addSubview(button)
@@ -59,7 +60,7 @@ class setRepControl: UIView {
         let currentValue = Int(button.titleLabel!.text!)
         if currentValue > 0 {
             button.setBackgroundImage(filledCircleImage, forState: .Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
             button.setTitle(String(currentValue! - 1), forState: .Normal)
         }
         else {

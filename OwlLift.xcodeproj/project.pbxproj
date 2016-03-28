@@ -27,6 +27,8 @@
 		577D36FB1C6E9B6C0098A5EB /* ActiveExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577D36FA1C6E9B6C0098A5EB /* ActiveExerciseTableViewCell.swift */; };
 		577D36FD1C6E9B830098A5EB /* ActiveExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577D36FC1C6E9B830098A5EB /* ActiveExerciseTableViewController.swift */; };
 		577D36FF1C6EA1B50098A5EB /* setRepControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577D36FE1C6EA1B50098A5EB /* setRepControl.swift */; };
+		57A937331CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A937321CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift */; };
+		57A937351CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A937341CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift */; };
 		57F542571C74131E0061C15E /* HistoricalExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F542561C74131E0061C15E /* HistoricalExercise.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		577D36FA1C6E9B6C0098A5EB /* ActiveExerciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		577D36FC1C6E9B830098A5EB /* ActiveExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveExerciseTableViewController.swift; sourceTree = "<group>"; };
 		577D36FE1C6EA1B50098A5EB /* setRepControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setRepControl.swift; sourceTree = "<group>"; };
+		57A937321CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricExerciseTableViewController.swift; sourceTree = "<group>"; };
+		57A937341CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		57F542561C74131E0061C15E /* HistoricalExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricalExercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,13 +90,15 @@
 		574753D21C5C54C700EF600F /* OwlLift */ = {
 			isa = PBXGroup;
 			children = (
+				574753D71C5C54C700EF600F /* Main.storyboard */,
+				57A937321CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift */,
+				57A937341CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift */,
 				575A10CC1C84FAD1003D7AAE /* HistoryTableViewCell.swift */,
 				575A10C91C84FA49003D7AAE /* HistoryTableViewController.swift */,
 				577D36FA1C6E9B6C0098A5EB /* ActiveExerciseTableViewCell.swift */,
 				577D36FC1C6E9B830098A5EB /* ActiveExerciseTableViewController.swift */,
 				577D36F81C6C34CB0098A5EB /* ActiveWorkoutCell.swift */,
 				577D36F21C6C0C140098A5EB /* ActiveWorkoutTableViewController.swift */,
-				574753D71C5C54C700EF600F /* Main.storyboard */,
 				577D36FE1C6EA1B50098A5EB /* setRepControl.swift */,
 				574753F31C5C7B6A00EF600F /* AddExerciseViewController.swift */,
 				574753EF1C5C741A00EF600F /* ExercisesTableViewController.swift */,
@@ -194,6 +200,7 @@
 				577D36F91C6C34CB0098A5EB /* ActiveWorkoutCell.swift in Sources */,
 				577D36FD1C6E9B830098A5EB /* ActiveExerciseTableViewController.swift in Sources */,
 				574753F41C5C7B6A00EF600F /* AddExerciseViewController.swift in Sources */,
+				57A937351CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift in Sources */,
 				577D36FF1C6EA1B50098A5EB /* setRepControl.swift in Sources */,
 				577D36F11C683EFB0098A5EB /* SelectExercisesTableViewController.swift in Sources */,
 				574753EC1C5C718E00EF600F /* Workout.swift in Sources */,
@@ -202,6 +209,7 @@
 				57F542571C74131E0061C15E /* HistoricalExercise.swift in Sources */,
 				574753F01C5C741A00EF600F /* ExercisesTableViewController.swift in Sources */,
 				574753EE1C5C71BE00EF600F /* Exercise.swift in Sources */,
+				57A937331CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
