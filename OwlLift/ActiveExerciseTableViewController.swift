@@ -76,6 +76,8 @@ class ActiveExerciseTableViewController: UITableViewController {
         let saveAction = UIAlertAction(title: "Save and Quit", style: .Default) { (action) in  exit = true }
         alertView.addAction(cancelAction)
         alertView.addAction(saveAction)
+        alertView.view.tintColor = UIColor.darkGrayColor()
+        //alertView.view.tintColor = UIColor.init(red: 255, green: 192, blue: 0, alpha: 1)
         presentViewController(alertView, animated: true, completion: nil)
         
         // If "Save and Quit" selected", save all the exercises and completed reps, then exit

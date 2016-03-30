@@ -55,6 +55,7 @@ class SelectExercisesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ExerciseTableViewCell
         
         let exercise = exercises[indexPath.row]
+        cell.tintColor = UIColor.lightGrayColor()
         cell.exerciseNameLabel.text = exercise.name
         cell.setLabel.text = String(Int(exercise.numSets))
         cell.repLabel.text = String(Int(exercise.numReps))

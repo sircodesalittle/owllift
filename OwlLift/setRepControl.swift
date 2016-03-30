@@ -12,6 +12,9 @@ class setRepControl: UIView {
 
     var sets: Int?
     var reps: Int?
+    
+    var completedReps = [Int]()
+    
     var setRepButtons = [UIButton]()
     var spacing = 5
     let filledCircleImage = UIImage(named: "filledCircle")
@@ -30,6 +33,7 @@ class setRepControl: UIView {
                 let button = UIButton()
                 button.setBackgroundImage(emptyCircleImage, forState: .Normal)
                 button.setTitle(String(reps! + 1), forState: .Normal)
+                button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
                 
                 button.addTarget(self, action: #selector(setRepControl.setRepButtonTapped(_:)), forControlEvents: .TouchDown)
                 button.adjustsImageWhenHighlighted = false
@@ -45,6 +49,23 @@ class setRepControl: UIView {
         for (index, button) in setRepButtons.enumerate() {
             buttonFrame.origin.x = CGFloat(index * (buttonSize + 5))
             button.frame = buttonFrame
+        }
+        
+        setData()
+    }
+    
+    func setData() {
+        for (index, set) in completedReps.enumerate() {
+            let currentButton = setRepButtons[index]
+            if set > 0 {
+                currentButton.setBackgroundImage(filledCircleImage, forState: .Normal)
+                currentButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+                currentButton.setTitle(String(set), forState: .Normal)
+            }
+            else {
+                currentButton.setBackgroundImage(emptyCircleImage, forState: .Normal)
+                currentButton.setTitle(String(reps! + 1), forState: .Normal)
+            }
         }
     }
     
