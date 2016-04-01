@@ -80,19 +80,8 @@ class ActiveExerciseTableViewController: UITableViewController {
     
     //WORKING HERE
     //TODO: Fix "Save and Quit" prompt - need to exit to default exercises screen
-    @IBAction func printCompleted(sender: AnyObject) {
+    func printCompleted() {
         var toSave: HistoricalExercise
-        var exit = false
-
-        // UIAlertController configuration
-        let alertView = UIAlertController(title: "Workout Complete", message: nil, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        let saveAction = UIAlertAction(title: "Save and Quit", style: .Default) { (action) in  exit = true }
-        alertView.addAction(cancelAction)
-        alertView.addAction(saveAction)
-        alertView.view.tintColor = UIColor.darkGrayColor()
-        //alertView.view.tintColor = UIColor.init(red: 255, green: 192, blue: 0, alpha: 1)
-        presentViewController(alertView, animated: true, completion: nil)
         
         // If "Save and Quit" selected", save all the exercises and completed reps, then exit
         for row in 0...tableView.numberOfRowsInSection(0) - 1
@@ -116,8 +105,6 @@ class ActiveExerciseTableViewController: UITableViewController {
     func loadHistoricalExercises() -> [HistoricalExercise]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(HistoricalExercise.ArchiveURL.path!) as? [HistoricalExercise]
     }
-    
-    
     
     /*
     // Override to support conditional editing of the table view.

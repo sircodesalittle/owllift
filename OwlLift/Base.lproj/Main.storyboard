@@ -318,13 +318,14 @@
                     <navigationItem key="navigationItem" id="lsu-dx-KXw">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="nsf-nT-SaJ">
                             <connections>
-                                <action selector="printCompleted:" destination="mHw-Od-Zi1" id="XfV-SS-qx6"/>
+                                <segue destination="igF-8B-ieh" kind="unwind" unwindAction="unwindToActiveWorkoutList:" id="6ZJ-fl-Caq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HX-5p-9bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="igF-8B-ieh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1737" y="-1915"/>
         </scene>

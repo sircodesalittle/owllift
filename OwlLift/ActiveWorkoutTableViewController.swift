@@ -140,4 +140,10 @@ class ActiveWorkoutTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func unwindToActiveWorkoutList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? ActiveExerciseTableViewController {
+            sourceViewController.printCompleted()
+        }
+    }
 }

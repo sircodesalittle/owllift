@@ -23,9 +23,6 @@ class HistoryTableViewController: UITableViewController {
         
         // Don't show empty cells at the bottom of the tableView
         tableView.tableFooterView = UIView(frame: CGRectZero)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -79,7 +76,9 @@ class HistoryTableViewController: UITableViewController {
         let cellId = "HistoricWorkoutCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! HistoryTableViewCell
         
-        let dictKey = Array(completedWorkouts.keys)[indexPath.row]
+        
+        let dictKey = Array(completedWorkouts.keys.sort())[indexPath.row]
+        
         let exercises = completedWorkouts[dictKey]
         
         cell.dateLabel.text = dictKey
@@ -87,21 +86,6 @@ class HistoryTableViewController: UITableViewController {
         
         return cell
     }
-    
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        selectedRowIndex = indexPath
-//        let selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! HistoryTableViewCell
-//        
-//        tableView.beginUpdates()
-//        tableView.endUpdates()
-//    }
-//    
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        if indexPath.row == selectedRowIndex?.row {
-//            return 150
-//        }
-//        return 61
-//    }
 
     override func viewWillAppear(animated: Bool) {
         if let loadedExercises = loadHistoricalExercises() {
@@ -194,31 +178,4 @@ class HistoryTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
- 
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
