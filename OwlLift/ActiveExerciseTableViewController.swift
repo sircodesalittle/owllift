@@ -78,6 +78,7 @@ class ActiveExerciseTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //WORKING HERE
     //TODO: Fix "Save and Quit" prompt - need to exit to default exercises screen
     @IBAction func printCompleted(sender: AnyObject) {
         var toSave: HistoricalExercise
