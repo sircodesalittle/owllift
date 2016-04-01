@@ -26,6 +26,9 @@ class HistoricExerciseTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        navigationItem.title = formatter.stringFromDate(historicalExercises[0].date)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +57,7 @@ class HistoricExerciseTableViewController: UITableViewController {
         let historicalExercise = historicalExercises[indexPath.row]
         
 //        cell.setRepLabel.text = String(Int(exercise.numSets)) + " x " + String(Int(exercise.numReps)) + " at " + String(Int(exercise.weight)) + " lbs"
+        cell.repLabel.text = String(Int(historicalExercise.exercise.numSets)) + " x " + String(Int(historicalExercise.exercise.numReps)) + " at " + String(Int(historicalExercise.exercise.weight)) + " lbs"
         cell.exerciseNameLabel.text = historicalExercise.name
         cell.setRepControlBox.sets = historicalExercise.numCompleted.count
         cell.setRepControlBox.reps = historicalExercise.numTargetReps

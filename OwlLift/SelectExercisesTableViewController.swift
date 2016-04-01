@@ -3,6 +3,7 @@ import UIKit
 class SelectExercisesTableViewController: UITableViewController {
     
     // MARK: Properties
+    var workoutName = String()
     var exercises = [Exercise]()
     var selectedExercises: [Exercise]?
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -23,6 +24,8 @@ class SelectExercisesTableViewController: UITableViewController {
         } else {
             loadExerciseSamples()
         }
+        
+        navigationItem.title = workoutName
     }
     
     func loadExerciseSamples() {

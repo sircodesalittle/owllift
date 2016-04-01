@@ -28,7 +28,7 @@ class HistoryTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,7 +37,6 @@ class HistoryTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.backgroundColor = UIColor.darkGrayColor()
     }
@@ -47,6 +46,21 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if completedExercises.count == 0 {
+            let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            emptyLabel.text = "No Workouts Completed"
+            emptyLabel.textAlignment = NSTextAlignment.Center
+            emptyLabel.textColor = UIColor.whiteColor()
+            
+            tableView.backgroundView = emptyLabel
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            
+            self.navigationItem.rightBarButtonItem = nil
+        }
+        else {
+            self.navigationItem.rightBarButtonItem = self.editButtonItem()
+            tableView.backgroundView = nil
+        }
         return completedWorkouts.count
     }
     
@@ -88,16 +102,16 @@ class HistoryTableViewController: UITableViewController {
 //        }
 //        return 61
 //    }
-    
+
     override func viewWillAppear(animated: Bool) {
         if let loadedExercises = loadHistoricalExercises() {
             completedExercises = loadedExercises
             compileWorkouts()
-            tableView.reloadData()
         }
         else {
             print("No historical data.")
         }
+        tableView.reloadData()
     }
 
     func compileWorkouts() {
@@ -143,25 +157,44 @@ class HistoryTableViewController: UITableViewController {
         }
     }
     
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+ 
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            let selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! HistoryTableViewCell
+            let dateKey = selectedCell.dateLabel.text!
+            // Gotta find the specific exercises to delete since there could be multiple instances of the same - assume none the same for same date
+            // Could be optimized by choosing a better way to keep track of data (historical data that is)
+            var exercisesToDelete = [HistoricalExercise]()
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+            for exercise in completedExercises {
+                if formatter.stringFromDate(exercise.date) == dateKey {
+                    exercisesToDelete.append(exercise)
+                }
+            }
+            
+            for exercise in exercisesToDelete {
+                let deleteIndex = completedExercises.indexOf(exercise)
+                completedExercises.removeAtIndex(deleteIndex!)
+            }
+            completedWorkouts.removeValueForKey(dateKey)
+            
+            saveHistoricalExercises()
+            compileWorkouts()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
 
     /*
     // Override to support rearranging the table view.

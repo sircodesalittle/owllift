@@ -13,6 +13,7 @@ class ActiveExerciseTableViewController: UITableViewController {
     var exercises = [Exercise]()
     var completedExercises = [HistoricalExercise]()
     var workoutDate: NSDate?
+    var workout: Workout?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,12 @@ class ActiveExerciseTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+
+        navigationItem.title = formatter.stringFromDate(workoutDate!)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +69,12 @@ class ActiveExerciseTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        if let completedAlready = loadHistoricalExercises() {
+            completedExercises = completedAlready
+        }
+        else {
+            print("No exercises completed yet")
+        }
         tableView.reloadData()
     }
     
@@ -86,7 +99,7 @@ class ActiveExerciseTableViewController: UITableViewController {
             let indexPath = NSIndexPath(forRow: row, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! ActiveExerciseTableViewCell
             let targetReps = cell.setRepView.reps!
-            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!, numTargetReps: targetReps, notes:["none"])!
+            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!, numTargetReps: targetReps, notes:["none"], exercise: exercises[indexPath.row])!
             completedExercises.append(toSave)
         }
         saveHistoricalExercises()

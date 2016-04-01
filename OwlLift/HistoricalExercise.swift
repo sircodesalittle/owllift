@@ -9,6 +9,7 @@ class HistoricalExercise: NSObject, NSCoding {
     var date: NSDate
     var numTargetReps: Int
     var notes: [String]
+    var exercise: Exercise
     
     struct PropertyKey {
         static let nameKey = "name"
@@ -16,6 +17,7 @@ class HistoricalExercise: NSObject, NSCoding {
         static let dateKey = "date"
         static let numTargetReps = "numTargetReps"
         static let notes = "notes"
+        static let exercise = "exercise"
     }
     
     // MARK: Archiving Paths
@@ -23,12 +25,13 @@ class HistoricalExercise: NSObject, NSCoding {
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("historicalExercises")
     
-    init? (name: String, numCompleted: [Int], date: NSDate, numTargetReps: Int, notes: [String]) {
+    init? (name: String, numCompleted: [Int], date: NSDate, numTargetReps: Int, notes: [String], exercise: Exercise) {
         self.name = name
         self.numCompleted = numCompleted
         self.date = date
         self.numTargetReps = numTargetReps
         self.notes = notes
+        self.exercise = exercise
         
         super.init()
         
@@ -43,6 +46,7 @@ class HistoricalExercise: NSObject, NSCoding {
         aCoder.encodeObject(date, forKey: PropertyKey.dateKey)
         aCoder.encodeObject(numTargetReps, forKey: PropertyKey.numTargetReps)
         aCoder.encodeObject(notes, forKey: PropertyKey.notes)
+        aCoder.encodeObject(exercise, forKey: PropertyKey.exercise)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -51,8 +55,9 @@ class HistoricalExercise: NSObject, NSCoding {
         let date = aDecoder.decodeObjectForKey(PropertyKey.dateKey) as! NSDate
         let numTargetReps = aDecoder.decodeObjectForKey(PropertyKey.numTargetReps) as! Int
         let notes = aDecoder.decodeObjectForKey(PropertyKey.notes) as! [String]
+        let exercise = aDecoder.decodeObjectForKey(PropertyKey.exercise) as! Exercise
         // Must call designated initializer.
-        self.init(name: name, numCompleted: numCompleted, date: date, numTargetReps: numTargetReps, notes: notes)
+        self.init(name: name, numCompleted: numCompleted, date: date, numTargetReps: numTargetReps, notes: notes, exercise: exercise)
     }
     
     func customDescription() -> String {

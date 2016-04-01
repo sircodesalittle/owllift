@@ -92,6 +92,7 @@ class WorkoutTableViewController: UITableViewController {
                 let indexPath = tableView.indexPathForCell(selectedWorkoutCell)!
                 let selectedWorkout = workouts[indexPath.row]
                 workoutDetailViewController.selectedExercises = selectedWorkout.exercises
+                workoutDetailViewController.workoutName = selectedWorkout.name
             }
         }
     }
