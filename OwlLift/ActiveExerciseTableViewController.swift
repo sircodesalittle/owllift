@@ -10,10 +10,11 @@ import UIKit
 
 class ActiveExerciseTableViewController: UITableViewController {
 
-    var exercises = [Exercise]()
+    var workoutExercises = [Exercise]()
     var completedExercises = [HistoricalExercise]()
     var workoutDate: NSDate?
-    var workout: Workout?
+    var workouts: [Workout]?
+    var exercises: [Exercise]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +53,13 @@ class ActiveExerciseTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exercises.count
+        return workoutExercises.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "ActiveExerciseCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ActiveExerciseTableViewCell
-        let exercise = exercises[indexPath.row]
+        let exercise = workoutExercises[indexPath.row]
         
         cell.exerciseNameLabel.text = exercise.name
         cell.setRepLabel.text = String(Int(exercise.numSets)) + " x " + String(Int(exercise.numReps)) + " at " + String(Int(exercise.weight)) + " lbs"
@@ -80,6 +81,8 @@ class ActiveExerciseTableViewController: UITableViewController {
     
     func printCompleted() {
         var toSave: HistoricalExercise
+        exercises = loadExercises()
+        workouts = loadWorkouts()
         
         // If "Save and Quit" selected", save all the exercises and completed reps, then exit
         for row in 0...tableView.numberOfRowsInSection(0) - 1
@@ -87,9 +90,51 @@ class ActiveExerciseTableViewController: UITableViewController {
             let indexPath = NSIndexPath(forRow: row, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! ActiveExerciseTableViewCell
             let targetReps = cell.setRepView.reps!
-            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!, numTargetReps: targetReps, notes:["none"], exercise: exercises[indexPath.row])!
+            
+            // Find out if the target reps were met
+            var success = true
+            let completed = cell.setRepView.returnData()
+            if completed.count == workoutExercises[indexPath.row].numSets {
+                for set in completed {
+                    if set != workoutExercises[indexPath.row].numReps {
+                        success = false
+                    }
+                }
+            }
+            else {
+                print("uh oh, for some reason completed set number does not match exercise set number.")
+            }
+            
+            var notes = ["none"]
+            
+            // If all reps of all sets were completed, increment the weight on the exercise by 5 lbs.
+            if success {
+                for exercise in exercises! {
+                    if workoutExercises[indexPath.row].name == exercise.name {
+                        exercise.weight += 5
+                    }
+                }
+                saveExercises()
+                // If an exercise changes, update it.
+                workouts = loadWorkouts()
+                for workout in workouts! {
+                    for (index, workoutExercise) in workout.exercises.enumerate() {
+                        for exercise in exercises! {
+                            if exercise.name == workoutExercise.name {
+                                workout.exercises[index] = exercise
+                            }
+                        }
+                    }
+                }
+                saveWorkouts()
+                notes = ["Great job! +5lbs."]
+                print("weight incremented")
+            }
+            
+            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!, numTargetReps: targetReps, notes:notes, exercise: workoutExercises[indexPath.row])!
             completedExercises.append(toSave)
         }
+        
         saveHistoricalExercises()
     }
     
@@ -103,4 +148,27 @@ class ActiveExerciseTableViewController: UITableViewController {
     func loadHistoricalExercises() -> [HistoricalExercise]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(HistoricalExercise.ArchiveURL.path!) as? [HistoricalExercise]
     }
+    
+    func saveExercises() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(exercises!, toFile: Exercise.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save exercises...")
+        }
+    }
+    
+    func loadExercises() -> [Exercise]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Exercise.ArchiveURL.path!) as? [Exercise]
+    }
+    
+    func saveWorkouts() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(workouts!, toFile: Workout.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save workouts...")
+        }
+    }
+    
+    func loadWorkouts() -> [Workout]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Workout.ArchiveURL.path!) as? [Workout]
+    }
+
 }
