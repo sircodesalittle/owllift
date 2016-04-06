@@ -12,6 +12,7 @@ class ExercisesTableViewController: UITableViewController {
 
     // MARK: Properties
     var exercises = [Exercise]()
+    var workouts: [Workout]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +111,19 @@ class ExercisesTableViewController: UITableViewController {
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             }
             saveExercises()
+            
+            // If an exercise changes, update it
+            workouts = loadWorkouts()
+            for workout in workouts! {
+                for (index, workoutExercise) in workout.exercises.enumerate() {
+                    for exercise in exercises {
+                        if exercise.name == workoutExercise.name {
+                            workout.exercises[index] = exercise
+                        }
+                    }
+                }
+            }
+            saveWorkouts()
         }
     }
     
@@ -124,6 +138,17 @@ class ExercisesTableViewController: UITableViewController {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Exercise.ArchiveURL.path!) as? [Exercise]
     }
 
+    func saveWorkouts() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(workouts!, toFile: Workout.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save workouts...")
+        }
+    }
+    
+    func loadWorkouts() -> [Workout]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Workout.ArchiveURL.path!) as? [Workout]
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

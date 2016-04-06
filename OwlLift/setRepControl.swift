@@ -71,7 +71,9 @@ class setRepControl: UIView {
     
     override func intrinsicContentSize() -> CGSize {
         let buttonSize = Int(frame.size.height)
-        let width = (buttonSize + spacing) * sets!
+//        let width = (buttonSize + spacing) * sets!
+        let width = (buttonSize * sets!) + (spacing * (sets! - 1))
+        
         
         return CGSize(width: width, height: buttonSize)
     }

@@ -61,7 +61,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRB-pI-SD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="-898"/>
+            <point key="canvasLocation" x="1122" y="-2058"/>
         </scene>
         <!--Historic Exercise Table View Controller-->
         <scene sceneID="wuo-gE-vCl">
@@ -147,7 +147,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1732" y="-906"/>
+            <point key="canvasLocation" x="1876" y="-2066"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="ixT-5y-f5n">
@@ -169,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXH-x1-5tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="-898"/>
+            <point key="canvasLocation" x="294" y="-2058"/>
         </scene>
         <!--Active Exercises-->
         <scene sceneID="v4u-EH-mXh">
@@ -241,7 +241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvl-C1-WRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="-1915"/>
+            <point key="canvasLocation" x="1026" y="-3075"/>
         </scene>
         <!--Active Exercise Table View Controller-->
         <scene sceneID="YvH-fC-i5M">
@@ -252,54 +252,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveExerciseCell" rowHeight="115" id="q6F-I8-h5U" customClass="ActiveExerciseTableViewCell" customModule="OwlLift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="115"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveExerciseCell" rowHeight="100" id="q6F-I8-h5U" customClass="ActiveExerciseTableViewCell" customModule="OwlLift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q6F-I8-h5U" id="d1I-vN-mI4">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="114.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="XV5-Pf-VhK">
-                                            <rect key="frame" x="8" y="8" width="584" height="99"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="84"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUE-3N-Zlc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="20.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PUE-3N-Zlc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="0.0"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnX-sN-ei5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="542" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnX-sN-ei5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="542" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="0.7526131466" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgH-g2-cWB">
-                                                            <rect key="frame" x="542" y="0.0" width="42" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgH-g2-cWB">
+                                                            <rect key="frame" x="542" y="0.0" width="42" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="0.7526131466" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kz-UJ-lak" customClass="setRepControl" customModule="OwlLift" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="70.5" width="584" height="28.5"/>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kz-UJ-lak" customClass="setRepControl" customModule="OwlLift" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="50" width="584" height="34"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PUE-3N-Zlc" firstAttribute="top" secondItem="XV5-Pf-VhK" secondAttribute="top" id="951-50-AbS"/>
-                                                <constraint firstAttribute="bottom" secondItem="7kz-UJ-lak" secondAttribute="bottom" id="dMA-V1-vHl"/>
+                                                <constraint firstItem="PUE-3N-Zlc" firstAttribute="top" secondItem="XV5-Pf-VhK" secondAttribute="top" id="K0z-Ar-nGf"/>
+                                                <constraint firstAttribute="bottom" secondItem="7kz-UJ-lak" secondAttribute="bottom" id="sSs-q0-31T"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="dMA-V1-vHl"/>
-                                                </mask>
-                                            </variation>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="XV5-Pf-VhK" firstAttribute="top" secondItem="d1I-vN-mI4" secondAttribute="topMargin" id="5HN-r6-fRw"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="XV5-Pf-VhK" secondAttribute="bottom" id="M91-hF-Fug"/>
-                                        <constraint firstItem="XV5-Pf-VhK" firstAttribute="trailing" secondItem="d1I-vN-mI4" secondAttribute="trailingMargin" id="Ut1-84-ZhY"/>
-                                        <constraint firstItem="XV5-Pf-VhK" firstAttribute="leading" secondItem="d1I-vN-mI4" secondAttribute="leadingMargin" id="wbj-1p-2Y9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="XV5-Pf-VhK" secondAttribute="trailing" id="G8Z-Ak-Fyc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="XV5-Pf-VhK" secondAttribute="bottom" id="Xmn-oC-yqi"/>
+                                        <constraint firstItem="XV5-Pf-VhK" firstAttribute="top" secondItem="d1I-vN-mI4" secondAttribute="topMargin" id="e0p-Z7-Jxa"/>
+                                        <constraint firstItem="XV5-Pf-VhK" firstAttribute="leading" secondItem="d1I-vN-mI4" secondAttribute="leadingMargin" id="hkb-lp-GZK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -327,7 +322,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HX-5p-9bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="igF-8B-ieh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="-1915"/>
+            <point key="canvasLocation" x="1881" y="-3075"/>
         </scene>
         <!--Active Workout Navigation-->
         <scene sceneID="Tan-uu-iih">
@@ -350,7 +345,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mY-d0-aGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="-1915"/>
+            <point key="canvasLocation" x="206" y="-3075"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8lD-PO-wvg">
@@ -461,7 +456,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rx5-OP-jdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="637"/>
+            <point key="canvasLocation" x="700" y="805"/>
         </scene>
         <!--Settings Navigation-->
         <scene sceneID="iEb-iG-9WN">
@@ -483,7 +478,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qre-ix-9h6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="637"/>
+            <point key="canvasLocation" x="-68" y="805"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="MPN-PK-BkX">
@@ -551,7 +546,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65q-yU-i6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="-155"/>
+            <point key="canvasLocation" x="1652" y="13"/>
         </scene>
         <!--Exercise Table-->
         <scene sceneID="8VA-mR-LlI">
@@ -638,7 +633,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2H3-Se-8dB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="637"/>
+            <point key="canvasLocation" x="1792" y="805"/>
         </scene>
         <!--Add Exercise-->
         <scene sceneID="nHZ-Gk-kcV">
@@ -649,7 +644,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GdF-13-DIp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ghJ-Ut-eDT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-bd-I1H">
@@ -817,7 +812,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH7-Ih-1hu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VE7-ee-ehy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3884" y="637"/>
+            <point key="canvasLocation" x="3276" y="797"/>
         </scene>
         <!--Add Exercise Navigation-->
         <scene sceneID="6By-Ff-RmD">
@@ -840,7 +835,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSq-6H-SBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128" y="1037"/>
+            <point key="canvasLocation" x="2592" y="1205"/>
         </scene>
         <!--Workout Exercise Table-->
         <scene sceneID="ZmK-2V-scK">
@@ -932,13 +927,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eo9-ab-GMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="w4P-nQ-HrE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3080" y="-139"/>
+            <point key="canvasLocation" x="2544" y="29"/>
         </scene>
     </scenes>
     <resources>
         <image name="mainTab" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OCK-t5-a57"/>
+        <segue reference="0um-Ou-bx8"/>
     </inferredMetricsTieBreakers>
 </document>

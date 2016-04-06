@@ -56,7 +56,6 @@ class HistoricExerciseTableViewController: UITableViewController {
         
         let historicalExercise = historicalExercises[indexPath.row]
         
-//        cell.setRepLabel.text = String(Int(exercise.numSets)) + " x " + String(Int(exercise.numReps)) + " at " + String(Int(exercise.weight)) + " lbs"
         cell.repLabel.text = String(Int(historicalExercise.exercise.numSets)) + " x " + String(Int(historicalExercise.exercise.numReps)) + " at " + String(Int(historicalExercise.exercise.weight)) + " lbs"
         cell.exerciseNameLabel.text = historicalExercise.name
         cell.setRepControlBox.sets = historicalExercise.numCompleted.count
