@@ -112,7 +112,7 @@ class ExercisesTableViewController: UITableViewController {
             }
             saveExercises()
             
-            // If an exercise changes, update it
+            // If an exercise changes, update it.
             workouts = loadWorkouts()
             for workout in workouts! {
                 for (index, workoutExercise) in workout.exercises.enumerate() {
