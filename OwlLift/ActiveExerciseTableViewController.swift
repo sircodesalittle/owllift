@@ -110,7 +110,7 @@ class ActiveExerciseTableViewController: UITableViewController {
             // If all reps of all sets were completed, increment the weight on the exercise by 5 lbs.
             if success {
                 for exercise in exercises! {
-                    if workoutExercises[indexPath.row].name == exercise.name {
+                    if workoutExercises[indexPath.row].name == exercise.name && exercise.autoIncrement {
                         exercise.weight += 5
                     }
                 }

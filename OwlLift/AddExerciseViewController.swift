@@ -23,6 +23,7 @@ class AddExerciseViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var weightStepper: UIStepper!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var autoIncrementSwitch: UISwitch!
     
     var exercise: Exercise?
     
@@ -54,6 +55,7 @@ class AddExerciseViewController: UIViewController, UINavigationControllerDelegat
             setStepper.value = Double(exercise.numSets)
             repStepper.value = Double(exercise.numReps)
             weightStepper.value = Double(exercise.weight)
+            autoIncrementSwitch.on = exercise.autoIncrement
         }
     }
 
@@ -104,6 +106,10 @@ class AddExerciseViewController: UIViewController, UINavigationControllerDelegat
         self.weightLabel.text = String(Int(sender.value))
     }
     
+    @IBAction func autoIncrementChanged(sender: UISwitch) {
+        checkValidExerciseName()
+    }
+    
     // MARK: - Navigation
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -114,7 +120,7 @@ class AddExerciseViewController: UIViewController, UINavigationControllerDelegat
             let weight = Int(weightLabel.text!)
             
             // Set the meal to be passed to MealListTableViewController after the unwind segue.
-            exercise = Exercise(name: name, numSets: setNum!, numReps: repNum!, weight: weight!)
+            exercise = Exercise(name: name, numSets: setNum!, numReps: repNum!, weight: weight!, autoIncrement: autoIncrementSwitch.on)
         }
     }
     

@@ -29,8 +29,65 @@
 		577D36FF1C6EA1B50098A5EB /* setRepControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577D36FE1C6EA1B50098A5EB /* setRepControl.swift */; };
 		57A937331CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A937321CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift */; };
 		57A937351CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A937341CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift */; };
+		57A9374A1CB4A12500F1AA41 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A937431CB4A0A100F1AA41 /* Charts.framework */; };
+		57A9374B1CB4A12500F1AA41 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A937431CB4A0A100F1AA41 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57A937551CB4A75600F1AA41 /* ChartExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A937541CB4A75600F1AA41 /* ChartExerciseTableViewController.swift */; };
+		57A937571CB4A76400F1AA41 /* ChartExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A937561CB4A76400F1AA41 /* ChartExerciseTableViewCell.swift */; };
+		57A937591CB5D0DA00F1AA41 /* ExerciseChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A937581CB5D0DA00F1AA41 /* ExerciseChartViewController.swift */; };
 		57F542571C74131E0061C15E /* HistoricalExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F542561C74131E0061C15E /* HistoricalExercise.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57A937421CB4A0A100F1AA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		57A937441CB4A0A100F1AA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		57A937461CB4A0A100F1AA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		57A937481CB4A0A100F1AA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		57A9374C1CB4A12500F1AA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		57A9374E1CB4A12500F1AA41 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				57A9374B1CB4A12500F1AA41 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		574753D01C5C54C700EF600F /* OwlLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwlLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +114,10 @@
 		577D36FE1C6EA1B50098A5EB /* setRepControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setRepControl.swift; sourceTree = "<group>"; };
 		57A937321CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricExerciseTableViewController.swift; sourceTree = "<group>"; };
 		57A937341CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../Downloads/Charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		57A937541CB4A75600F1AA41 /* ChartExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartExerciseTableViewController.swift; sourceTree = "<group>"; };
+		57A937561CB4A76400F1AA41 /* ChartExerciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		57A937581CB5D0DA00F1AA41 /* ExerciseChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseChartViewController.swift; sourceTree = "<group>"; };
 		57F542561C74131E0061C15E /* HistoricalExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricalExercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A9374A1CB4A12500F1AA41 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +152,11 @@
 		574753D21C5C54C700EF600F /* OwlLift */ = {
 			isa = PBXGroup;
 			children = (
+				57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */,
 				574753D71C5C54C700EF600F /* Main.storyboard */,
+				57A937581CB5D0DA00F1AA41 /* ExerciseChartViewController.swift */,
+				57A937541CB4A75600F1AA41 /* ChartExerciseTableViewController.swift */,
+				57A937561CB4A76400F1AA41 /* ChartExerciseTableViewCell.swift */,
 				57A937321CA627BC00F1AA41 /* HistoricExerciseTableViewController.swift */,
 				57A937341CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift */,
 				575A10CC1C84FAD1003D7AAE /* HistoryTableViewCell.swift */,
@@ -118,6 +184,17 @@
 			path = OwlLift;
 			sourceTree = "<group>";
 		};
+		57A9373C1CB4A0A100F1AA41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57A937431CB4A0A100F1AA41 /* Charts.framework */,
+				57A937451CB4A0A100F1AA41 /* Charts.framework */,
+				57A937471CB4A0A100F1AA41 /* Charts.framework */,
+				57A937491CB4A0A100F1AA41 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,10 +205,12 @@
 				574753CC1C5C54C700EF600F /* Sources */,
 				574753CD1C5C54C700EF600F /* Frameworks */,
 				574753CE1C5C54C700EF600F /* Resources */,
+				57A9374E1CB4A12500F1AA41 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				57A9374D1CB4A12500F1AA41 /* PBXTargetDependency */,
 			);
 			name = OwlLift;
 			productName = OwlLift;
@@ -165,12 +244,49 @@
 			mainGroup = 574753C71C5C54C700EF600F;
 			productRefGroup = 574753D11C5C54C700EF600F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 57A9373C1CB4A0A100F1AA41 /* Products */;
+					ProjectRef = 57A9373B1CB4A0A100F1AA41 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				574753CF1C5C54C700EF600F /* OwlLift */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		57A937431CB4A0A100F1AA41 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 57A937421CB4A0A100F1AA41 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		57A937451CB4A0A100F1AA41 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 57A937441CB4A0A100F1AA41 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		57A937471CB4A0A100F1AA41 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 57A937461CB4A0A100F1AA41 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		57A937491CB4A0A100F1AA41 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 57A937481CB4A0A100F1AA41 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		574753CE1C5C54C700EF600F /* Resources */ = {
@@ -194,8 +310,10 @@
 				574753F81C5C82BB00EF600F /* ExerciseTableViewCell.swift in Sources */,
 				577D36F51C6C31210098A5EB /* EasyTime.swift in Sources */,
 				577D36F31C6C0C140098A5EB /* ActiveWorkoutTableViewController.swift in Sources */,
+				57A937551CB4A75600F1AA41 /* ChartExerciseTableViewController.swift in Sources */,
 				574753D41C5C54C700EF600F /* AppDelegate.swift in Sources */,
 				574754041C66AF6F00EF600F /* WorkoutTableViewController.swift in Sources */,
+				57A937571CB4A76400F1AA41 /* ChartExerciseTableViewCell.swift in Sources */,
 				577D36FB1C6E9B6C0098A5EB /* ActiveExerciseTableViewCell.swift in Sources */,
 				577D36F91C6C34CB0098A5EB /* ActiveWorkoutCell.swift in Sources */,
 				577D36FD1C6E9B830098A5EB /* ActiveExerciseTableViewController.swift in Sources */,
@@ -203,6 +321,7 @@
 				57A937351CA627CB00F1AA41 /* HistoricExerciseTableViewCell.swift in Sources */,
 				577D36FF1C6EA1B50098A5EB /* setRepControl.swift in Sources */,
 				577D36F11C683EFB0098A5EB /* SelectExercisesTableViewController.swift in Sources */,
+				57A937591CB5D0DA00F1AA41 /* ExerciseChartViewController.swift in Sources */,
 				574753EC1C5C718E00EF600F /* Workout.swift in Sources */,
 				574754021C66AB4000EF600F /* WorkoutTableViewCell.swift in Sources */,
 				575A10CA1C84FA49003D7AAE /* HistoryTableViewController.swift in Sources */,
@@ -214,6 +333,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57A9374D1CB4A12500F1AA41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 57A9374C1CB4A12500F1AA41 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		574753D71C5C54C700EF600F /* Main.storyboard */ = {
@@ -320,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = OwlLift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ad.OwlLift;
@@ -331,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = OwlLift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ad.OwlLift;
