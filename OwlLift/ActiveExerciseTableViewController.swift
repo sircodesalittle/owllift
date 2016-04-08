@@ -81,7 +81,14 @@ class ActiveExerciseTableViewController: UITableViewController {
     
     func printCompleted() {
         var toSave: HistoricalExercise
-        exercises = loadExercises()
+        
+        if let loadedExercises = loadExercises() {
+            exercises = loadedExercises
+        }
+        else {
+            exercises = []
+        }
+        
         workouts = loadWorkouts()
         
         // If "Save and Quit" selected", save all the exercises and completed reps, then exit
