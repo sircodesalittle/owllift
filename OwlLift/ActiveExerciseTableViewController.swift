@@ -79,6 +79,14 @@ class ActiveExerciseTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    func loadExerciseSamples() {
+        let ex1 = Exercise(name: "Bench Press", numSets: 5, numReps: 5, weight: 135, autoIncrement: true)
+        let ex2 = Exercise(name: "Squat", numSets: 5, numReps: 5, weight: 135, autoIncrement: true)
+        
+        exercises!.append(ex1!)
+        exercises!.append(ex2!)
+    }
+    
     func printCompleted() {
         var toSave: HistoricalExercise
         
@@ -87,6 +95,7 @@ class ActiveExerciseTableViewController: UITableViewController {
         }
         else {
             exercises = []
+            loadExerciseSamples()
         }
         
         workouts = loadWorkouts()
