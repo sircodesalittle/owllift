@@ -15,21 +15,20 @@ class ChartExerciseTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // Set the background color.
         self.tableView.backgroundColor = UIColor.darkGrayColor()
         
         // Don't show empty cells at the bottom of the tableView
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        // Set the title.
         navigationItem.title = "Charts"
     }
 
     override func viewWillAppear(animated: Bool) {
+        
+        // Load the default exercises if the exercises setup was never visited.
         if let loadedExercises = loadHistoricalExercises() {
             completedExercises = loadedExercises
             compileExercises()
@@ -54,11 +53,12 @@ class ChartExerciseTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // Handle when there is no historical data.
         if completedExercises.count == 0 {
             let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             emptyLabel.text = "No Exercises Completed"
@@ -79,15 +79,16 @@ class ChartExerciseTableViewController: UITableViewController {
     func loadHistoricalExercises() -> [HistoricalExercise]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(HistoricalExercise.ArchiveURL.path!) as? [HistoricalExercise]
     }
-    
+
+    // Construct the cells.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellId = "ChartCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! ChartExerciseTableViewCell
         
+        // Find the corresponding exercise dictionary entry (organized alphabetically by exercise.name).
         let dictKey = Array(exerciseDict.keys.sort())[indexPath.row]
         let exercises = exerciseDict[dictKey]
         
-        //let completedExercise = completedExercises[indexPath.row]
         cell.exerciseNameLabel.text = exercises![0].name
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell
