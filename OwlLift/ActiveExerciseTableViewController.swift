@@ -10,10 +10,11 @@ import UIKit
 
 class ActiveExerciseTableViewController: UITableViewController {
 
-    var exercises = [Exercise]()
+    var workoutExercises = [Exercise]()
     var completedExercises = [HistoricalExercise]()
     var workoutDate: NSDate?
-    var workout: Workout?
+    var workouts: [Workout]?
+    var exercises: [Exercise]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +24,6 @@ class ActiveExerciseTableViewController: UITableViewController {
         // Don't show empty cells at the bottom of the tableView
         tableView.tableFooterView = UIView(frame: CGRectZero)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.MediumStyle
 
@@ -52,13 +47,13 @@ class ActiveExerciseTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exercises.count
+        return workoutExercises.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "ActiveExerciseCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ActiveExerciseTableViewCell
-        let exercise = exercises[indexPath.row]
+        let exercise = workoutExercises[indexPath.row]
         
         cell.exerciseNameLabel.text = exercise.name
         cell.setRepLabel.text = String(Int(exercise.numSets)) + " x " + String(Int(exercise.numReps)) + " at " + String(Int(exercise.weight)) + " lbs"
@@ -78,20 +73,26 @@ class ActiveExerciseTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    //TODO: Fix "Save and Quit" prompt - need to exit to default exercises screen
-    @IBAction func printCompleted(sender: AnyObject) {
+    func loadExerciseSamples() {
+        let ex1 = Exercise(name: "Bench Press", numSets: 5, numReps: 5, weight: 135, autoIncrement: true)
+        let ex2 = Exercise(name: "Squat", numSets: 5, numReps: 5, weight: 135, autoIncrement: true)
+        
+        exercises!.append(ex1!)
+        exercises!.append(ex2!)
+    }
+    
+    func printCompleted() {
         var toSave: HistoricalExercise
-        var exit = false
-
-        // UIAlertController configuration
-        let alertView = UIAlertController(title: "Workout Complete", message: nil, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        let saveAction = UIAlertAction(title: "Save and Quit", style: .Default) { (action) in  exit = true }
-        alertView.addAction(cancelAction)
-        alertView.addAction(saveAction)
-        alertView.view.tintColor = UIColor.darkGrayColor()
-        //alertView.view.tintColor = UIColor.init(red: 255, green: 192, blue: 0, alpha: 1)
-        presentViewController(alertView, animated: true, completion: nil)
+        
+        if let loadedExercises = loadExercises() {
+            exercises = loadedExercises
+        }
+        else {
+            exercises = []
+            loadExerciseSamples()
+        }
+        
+        workouts = loadWorkouts()
         
         // If "Save and Quit" selected", save all the exercises and completed reps, then exit
         for row in 0...tableView.numberOfRowsInSection(0) - 1
@@ -99,9 +100,51 @@ class ActiveExerciseTableViewController: UITableViewController {
             let indexPath = NSIndexPath(forRow: row, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! ActiveExerciseTableViewCell
             let targetReps = cell.setRepView.reps!
-            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!, numTargetReps: targetReps, notes:["none"], exercise: exercises[indexPath.row])!
+            
+            // Find out if the target reps were met
+            var success = true
+            let completed = cell.setRepView.returnData()
+            if completed.count == workoutExercises[indexPath.row].numSets {
+                for set in completed {
+                    if set != workoutExercises[indexPath.row].numReps {
+                        success = false
+                    }
+                }
+            }
+            else {
+                print("uh oh, for some reason completed set number does not match exercise set number.")
+            }
+            
+            var notes = ["none"]
+            
+            // If all reps of all sets were completed, increment the weight on the exercise by 5 lbs.
+            if success {
+                for exercise in exercises! {
+                    if workoutExercises[indexPath.row].name == exercise.name && exercise.autoIncrement {
+                        exercise.weight += 5
+                    }
+                }
+                saveExercises()
+                // If an exercise changes, update it.
+                workouts = loadWorkouts()
+                for workout in workouts! {
+                    for (index, workoutExercise) in workout.exercises.enumerate() {
+                        for exercise in exercises! {
+                            if exercise.name == workoutExercise.name {
+                                workout.exercises[index] = exercise
+                            }
+                        }
+                    }
+                }
+                saveWorkouts()
+                notes = ["Great job! +5lbs."]
+                print("weight incremented")
+            }
+            
+            toSave = HistoricalExercise(name: cell.exerciseNameLabel.text!, numCompleted: cell.setRepView.returnData(), date: workoutDate!, numTargetReps: targetReps, notes:notes, exercise: workoutExercises[indexPath.row])!
             completedExercises.append(toSave)
         }
+        
         saveHistoricalExercises()
     }
     
@@ -116,51 +159,26 @@ class ActiveExerciseTableViewController: UITableViewController {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(HistoricalExercise.ArchiveURL.path!) as? [HistoricalExercise]
     }
     
+    func saveExercises() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(exercises!, toFile: Exercise.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save exercises...")
+        }
+    }
     
+    func loadExercises() -> [Exercise]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Exercise.ArchiveURL.path!) as? [Exercise]
+    }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func saveWorkouts() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(workouts!, toFile: Workout.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save workouts...")
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func loadWorkouts() -> [Workout]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Workout.ArchiveURL.path!) as? [Workout]
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

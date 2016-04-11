@@ -12,17 +12,12 @@ class ExercisesTableViewController: UITableViewController {
 
     // MARK: Properties
     var exercises = [Exercise]()
+    var workouts: [Workout]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.backgroundColor = UIColor.darkGrayColor()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         if let savedExercises = loadExercises() {
             exercises += savedExercises
@@ -33,8 +28,8 @@ class ExercisesTableViewController: UITableViewController {
     }
     
     func loadExerciseSamples() {
-        let ex1 = Exercise(name: "Bench Press", numSets: 5, numReps: 5, weight: 135)
-        let ex2 = Exercise(name: "Squat", numSets: 5, numReps: 5, weight: 135)
+        let ex1 = Exercise(name: "Bench Press", numSets: 5, numReps: 5, weight: 135, autoIncrement: true)
+        let ex2 = Exercise(name: "Squat", numSets: 5, numReps: 5, weight: 135, autoIncrement: true)
         
         exercises.append(ex1!)
         exercises.append(ex2!)
@@ -110,6 +105,19 @@ class ExercisesTableViewController: UITableViewController {
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             }
             saveExercises()
+            
+            // If an exercise changes, update it.
+            workouts = loadWorkouts()
+            for workout in workouts! {
+                for (index, workoutExercise) in workout.exercises.enumerate() {
+                    for exercise in exercises {
+                        if exercise.name == workoutExercise.name {
+                            workout.exercises[index] = exercise
+                        }
+                    }
+                }
+            }
+            saveWorkouts()
         }
     }
     
@@ -124,26 +132,14 @@ class ExercisesTableViewController: UITableViewController {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Exercise.ArchiveURL.path!) as? [Exercise]
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
+    func saveWorkouts() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(workouts!, toFile: Workout.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save workouts...")
+        }
     }
-    */
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
+    func loadWorkouts() -> [Workout]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Workout.ArchiveURL.path!) as? [Workout]
     }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
 }

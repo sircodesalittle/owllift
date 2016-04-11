@@ -20,12 +20,7 @@ class HistoricExerciseTableViewController: UITableViewController {
         // Don't show empty cells at the bottom of the tableView
         tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        // Date formatter so we can display the date of what history we are viewing.
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.MediumStyle
         navigationItem.title = formatter.stringFromDate(historicalExercises[0].date)
@@ -33,7 +28,6 @@ class HistoricExerciseTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -50,18 +44,17 @@ class HistoricExerciseTableViewController: UITableViewController {
         return historicalExercises.count
     }
     
+    // Construct the HistoricExeciseCells
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellId = "HistoricExerciseCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! HistoricExerciseTableViewCell
         
         let historicalExercise = historicalExercises[indexPath.row]
         
-//        cell.setRepLabel.text = String(Int(exercise.numSets)) + " x " + String(Int(exercise.numReps)) + " at " + String(Int(exercise.weight)) + " lbs"
         cell.repLabel.text = String(Int(historicalExercise.exercise.numSets)) + " x " + String(Int(historicalExercise.exercise.numReps)) + " at " + String(Int(historicalExercise.exercise.weight)) + " lbs"
         cell.exerciseNameLabel.text = historicalExercise.name
         cell.setRepControlBox.sets = historicalExercise.numCompleted.count
         cell.setRepControlBox.reps = historicalExercise.numTargetReps
-        
         cell.setRepControlBox.completedReps = historicalExercise.numCompleted
         
         var exerciseNote = ""

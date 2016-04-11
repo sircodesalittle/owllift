@@ -34,7 +34,7 @@ class ActiveWorkoutTableViewController: UITableViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -134,10 +134,16 @@ class ActiveWorkoutTableViewController: UITableViewController {
             if let selectedWorkoutCell = sender as? ActiveWorkoutCell {
                 let indexPath = tableView.indexPathForCell(selectedWorkoutCell)!
                 let selectedWorkout = workouts[indexPath.row]
-                workoutDetailViewController.exercises = selectedWorkout.exercises
+                workoutDetailViewController.workoutExercises = selectedWorkout.exercises
                 workoutDetailViewController.workoutDate = selectedWorkoutCell.workoutDateData
-                workoutDetailViewController.workout = selectedWorkout
+                //workoutDetailViewController.workout = selectedWorkout
             }
+        }
+    }
+    
+    @IBAction func unwindToActiveWorkoutList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? ActiveExerciseTableViewController {
+            sourceViewController.printCompleted()
         }
     }
 }
