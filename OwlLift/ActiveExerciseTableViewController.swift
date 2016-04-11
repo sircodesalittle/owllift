@@ -22,7 +22,7 @@ class ActiveExerciseTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor.darkGrayColor()
         
         // Don't show empty cells at the bottom of the tableView
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        //tableView.tableFooterView = UIView(frame: CGRectZero)
 
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.MediumStyle
@@ -95,9 +95,14 @@ class ActiveExerciseTableViewController: UITableViewController {
         workouts = loadWorkouts()
         
         // If "Save and Quit" selected", save all the exercises and completed reps, then exit
-        for row in 0...tableView.numberOfRowsInSection(0) - 1
+        let numRows = tableView.numberOfRowsInSection(0) - 1
+        for row in 0...numRows
         {
             let indexPath = NSIndexPath(forRow: row, inSection: 0)
+            
+            // For cells that have not been drawn yet.
+            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+            
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! ActiveExerciseTableViewCell
             let targetReps = cell.setRepView.reps!
             
